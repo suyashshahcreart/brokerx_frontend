@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Property Brokers - Premium Real Estate Services</title>
+    <meta name="description" content="Discover luxury properties with Elite Property Brokers. Expert guidance for high-end real estate investments and premium property solutions.">
+    <meta name="keywords" content="luxury real estate, property broker, premium properties, real estate investment">
+    <meta property="og:title" content="Elite Property Brokers - Premium Real Estate Services">
+    <meta property="og:description" content="Discover luxury properties with Elite Property Brokers">
+    <meta name="twitter:title" content="Elite Property Brokers - Premium Real Estate Services">
+    <meta name="twitter:description" content="Discover luxury properties with Elite Property Brokers">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">ELITE BROKERS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="properties.html">Properties</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="areas.html">Service Areas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <!-- <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="display-3 fw-bold mb-4">Discover Your Dream Property</h1>
+            <p class="lead mb-5">Premium real estate solutions tailored to your lifestyle</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="properties.html" class="btn btn-primary btn-lg">View Properties</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">Get in Touch</a>
+            </div>
+        </div> -->
+        <div class="row align-items-center mb-5">
+                <div class="col-md-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Broker" class="rounded-circle shadow mb-3" style="width: 250px; height: 250px; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <h1 class="mb-3">Michael Anderson</h1>
+                    <p class="lead mb-4">Senior Property Broker & Real Estate Consultant</p>
+                    <p class="mb-4">With over 15 years of experience in luxury real estate, I specialize in matching discerning clients with exceptional properties. My commitment is to provide personalized service and expert guidance throughout your property journey.</p>
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card">
+                                <h3 class="text-primary">15+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card">
+                                <h3 class="text-primary">250+</h3>
+                                <p>Properties Sold</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card">
+                                <h3 class="text-primary">98%</h3>
+                                <p>Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">                                         
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="mb-0">Available Properties</h1>
+                <!-- Mobile Controls - Only visible on mobile -->
+                <div class="d-flex gap-2 d-md-none">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary btn-sm" id="mobileViewToggle" title="Toggle View">
+                            <i class="fas fa-th-large" id="viewToggleIcon"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="mobileFilterBtn" data-bs-toggle="modal" data-bs-target="#mobileFilterModal">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                                                         
+                <!-- Desktop Filter Section - Hidden on mobile -->
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="bg-white p-4 shadow-sm mb-4 filter-container">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Filters</h5>
+                            <button class="btn btn-sm" id="advancedFilterBtn" title="Advanced Filters" data-bs-toggle="modal" data-bs-target="#advancedFilterModal">
+                                <svg width="32px" height="32px" viewBox="0 0 48.00 48.00" xmlns="http://www.w3.org/2000/svg" fill="#1a365d" transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)" stroke="#1a365d" stroke-width="0.00048000000000000007">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#1a365d" stroke-width="0.288"/>
+                                    <g id="SVGRepo_iconCarrier"> <title>filter-horizontal-solid</title> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"/> </g> <g id="icons_Q2" data-name="icons Q2"> <path d="M41.8,8H21.7A6.2,6.2,0,0,0,16,4a6,6,0,0,0-5.6,4H6.2A2.1,2.1,0,0,0,4,10a2.1,2.1,0,0,0,2.2,2h4.2A6,6,0,0,0,16,16a6.2,6.2,0,0,0,5.7-4H41.8A2.1,2.1,0,0,0,44,10,2.1,2.1,0,0,0,41.8,8Z"/> <path d="M41.8,22H37.7A6.2,6.2,0,0,0,32,18a6,6,0,0,0-5.6,4H6.2a2,2,0,1,0,0,4H26.4A6,6,0,0,0,32,30a6.2,6.2,0,0,0,5.7-4h4.1a2,2,0,1,0,0-4Z"/> <path d="M41.8,36H24.7A6.2,6.2,0,0,0,19,32a6,6,0,0,0-5.6,4H6.2a2,2,0,1,0,0,4h7.2A6,6,0,0,0,19,44a6.2,6.2,0,0,0,5.7-4H41.8a2,2,0,1,0,0-4Z"/> </g> </g> </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Property Type</label>
+                            <select class="form-select" id="typeFilter">
+                                <option value="">All Types</option>
+                                <option>Apartment</option>
+                                <option>Villa</option>
+                                <option>Penthouse</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price Range</label>
+                            <input type="range" class="form-range" min="0" max="5000000" step="100000" id="priceRange">
+                            <div class="d-flex justify-content-between mt-2">
+                                <small class="text-muted">$0</small>
+                                <small class="text-muted" id="priceValue">$5,000,000</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <div class="multi-select-wrapper">
+                                <select class="form-select" id="locationFilter" multiple style="display: none;">
+                                    <option value="sindhu-bhavan">Sindhu Bhavan</option>
+                                    <option value="bopal">Bopal</option>
+                                    <option value="gota">Gota</option>
+                                    <option value="ranip">Ranip</option>
+                                    <option value="vastrapur">Vastrapur</option>
+                                    <option value="sg-highway">SG Highway</option>
+                                </select>
+                                <div class="custom-multi-select" id="customLocationSelect">
+                                    <div class="multi-select-trigger">
+                                        <span class="placeholder">Select locations...</span>
+                                        <i class="lucide-chevron-down"></i>
+                                    </div>
+                                    <div class="multi-select-dropdown">
+                                        <div class="multi-select-option" data-value="sindhu-bhavan">Sindhu Bhavan</div>
+                                        <div class="multi-select-option" data-value="bopal">Bopal</div>
+                                        <div class="multi-select-option" data-value="gota">Gota</div>
+                                        <div class="multi-select-option" data-value="ranip">Ranip</div>
+                                        <div class="multi-select-option" data-value="vastrapur">Vastrapur</div>
+                                        <div class="multi-select-option" data-value="sg-highway">SG Highway</div>
+                                    </div>
+                                </div>
+                                <div class="selected-tags mt-2" id="selectedLocationTags"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100" id="applyFiltersBtn">Apply Filters</button>
+                    </div>
+                </div>
+                <!-- Properties Grid - Full width on mobile, 9 cols on desktop -->
+                <div class="col-12 col-md-9">
+                    <div class="row g-4" id="propertiesGrid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="py-5 bg-light">
+        <div class="container">
+            <div class="search-box">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Location">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option>Property Type</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                            <option>Penthouse</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Min Price">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Max Price">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Properties</h2>
+            <div class="row g-4" id="featuredProperties"></div>
+            <div class="text-center mt-5">
+                <a href="properties.html" class="btn btn-outline-primary">View All Properties</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Key Facilities</h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="facility-card">
+                        <div class="icon-parking"></div>
+                        <h5>Secure Parking</h5>
+                        <p>24/7 monitored parking facilities</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="facility-card">
+                        <div class="icon-shield-check"></div>
+                        <h5>Security</h5>
+                        <p>Round-the-clock security services</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="facility-card">
+                        <div class="icon-school"></div>
+                        <h5>Schools Nearby</h5>
+                        <p>Top educational institutions</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="facility-card">
+                        <div class="icon-train"></div>
+                        <h5>Connectivity</h5>
+                        <p>Easy access to transport</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="py-5">
+        <div class="container">
+            <h1 class="mb-4">Get In Touch</h1>
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <form id="contactForm" class="contact-form">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="contact-item">
+                            <i class="icon-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-mail"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@elitebrokers.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-map-pin"></i>
+                            <div>
+                                <strong>Office</strong>
+                                <p>123 Premium Plaza, Downtown</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-message-circle"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">ELITE BROKERS</h5>
+                    <p>Your trusted partner in premium real estate solutions.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="profile.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control mb-2" placeholder="Your email">
+                        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Elite Property Brokers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Advanced Filter Modal -->
+    <div class="modal fade" id="advancedFilterModal" tabindex="-1" aria-labelledby="advancedFilterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="advancedFilterModalLabel">
+                        <i class="lucide-sliders-horizontal me-2"></i>Advanced Filters
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Bedrooms</label>
+                            <select class="form-select" id="advancedBedrooms">
+                                <option value="">Any</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Bathrooms</label>
+                            <select class="form-select" id="advancedBathrooms">
+                                <option value="">Any</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Property Age</label>
+                            <select class="form-select" id="advancedAge">
+                                <option value="">Any</option>
+                                <option value="new">Under Construction</option>
+                                <option value="0-1">0-1 Years</option>
+                                <option value="1-5">1-5 Years</option>
+                                <option value="5-10">5-10 Years</option>
+                                <option value="10+">10+ Years</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Furnished Status</label>
+                            <select class="form-select" id="advancedFurnished">
+                                <option value="">Any</option>
+                                <option value="furnished">Fully Furnished</option>
+                                <option value="semi">Semi Furnished</option>
+                                <option value="unfurnished">Unfurnished</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Area Range (sq ft)</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <input type="number" class="form-control" id="minArea" placeholder="Min Area">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control" id="maxArea" placeholder="Max Area">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Amenities</label>
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="parking" value="parking">
+                                        <label class="form-check-label" for="parking">Parking</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gym" value="gym">
+                                        <label class="form-check-label" for="gym">Gym</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="pool" value="pool">
+                                        <label class="form-check-label" for="pool">Swimming Pool</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="security" value="security">
+                                        <label class="form-check-label" for="security">24/7 Security</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="elevator" value="elevator">
+                                        <label class="form-check-label" for="elevator">Elevator</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="garden" value="garden">
+                                        <label class="form-check-label" for="garden">Garden</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="clearAdvancedFilters">Clear All</button>
+                    <button type="button" class="btn btn-primary" id="applyAdvancedFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Filter Modal -->
+    <div class="modal fade" id="mobileFilterModal" tabindex="-1" aria-labelledby="mobileFilterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mobileFilterModalLabel">
+                        <i class="fas fa-filter me-2"></i>Property Filters
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Basic Filters -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-3">Basic Filters</h6>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Property Type</label>
+                            <select class="form-select" id="mobileTypeFilter">
+                                <option value="">All Types</option>
+                                <option>Apartment</option>
+                                <option>Villa</option>
+                                <option>Penthouse</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Price Range</label>
+                            <input type="range" class="form-range" min="0" max="5000000" step="100000" id="mobilePriceRange">
+                            <div class="d-flex justify-content-between mt-2">
+                                <small class="text-muted">$0</small>
+                                <small class="text-muted" id="mobilePriceValue">$5,000,000</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <div class="multi-select-wrapper">
+                                <div class="custom-multi-select" id="mobileLocationSelect">
+                                    <div class="multi-select-trigger">
+                                        <span class="placeholder">Select locations...</span>
+                                        <i class="lucide-chevron-down"></i>
+                                    </div>
+                                    <div class="multi-select-dropdown">
+                                        <div class="multi-select-option" data-value="sindhu-bhavan">Sindhu Bhavan</div>
+                                        <div class="multi-select-option" data-value="bopal">Bopal</div>
+                                        <div class="multi-select-option" data-value="gota">Gota</div>
+                                        <div class="multi-select-option" data-value="ranip">Ranip</div>
+                                        <div class="multi-select-option" data-value="vastrapur">Vastrapur</div>
+                                        <div class="multi-select-option" data-value="sg-highway">SG Highway</div>
+                                    </div>
+                                </div>
+                                <div class="selected-tags mt-2" id="mobileSelectedLocationTags"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Filters -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-3">Advanced Filters</h6>
+                        
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <label class="form-label">Bedrooms</label>
+                                <select class="form-select" id="mobileBedrooms">
+                                    <option value="">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Bathrooms</label>
+                                <select class="form-select" id="mobileBathrooms">
+                                    <option value="">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Property Age</label>
+                                <select class="form-select" id="mobileAge">
+                                    <option value="">Any</option>
+                                    <option value="new">Under Construction</option>
+                                    <option value="0-1">0-1 Years</option>
+                                    <option value="1-5">1-5 Years</option>
+                                    <option value="5-10">5-10 Years</option>
+                                    <option value="10+">10+ Years</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Furnished Status</label>
+                                <select class="form-select" id="mobileFurnished">
+                                    <option value="">Any</option>
+                                    <option value="furnished">Fully Furnished</option>
+                                    <option value="semi">Semi Furnished</option>
+                                    <option value="unfurnished">Unfurnished</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <label class="form-label">Area Range (sq ft)</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <input type="number" class="form-control" id="mobileMinArea" placeholder="Min Area">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control" id="mobileMaxArea" placeholder="Max Area">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <label class="form-label">Amenities</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobileParking" value="parking">
+                                        <label class="form-check-label" for="mobileParking">Parking</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobileGym" value="gym">
+                                        <label class="form-check-label" for="mobileGym">Gym</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobilePool" value="pool">
+                                        <label class="form-check-label" for="mobilePool">Swimming Pool</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobileSecurity" value="security">
+                                        <label class="form-check-label" for="mobileSecurity">24/7 Security</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobileElevator" value="elevator">
+                                        <label class="form-check-label" for="mobileElevator">Elevator</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mobileGarden" value="garden">
+                                        <label class="form-check-label" for="mobileGarden">Garden</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="clearMobileFilters">Clear All</button>
+                    <button type="button" class="btn btn-primary" id="applyMobileFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index-app.js"></script>
+    <script src="properties-app.js"></script>
+</body>
+</html>
