@@ -1,33 +1,83 @@
 const featuredProperties = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-        title: 'Luxury Penthouse',
-        location: 'Downtown District',
-        price: '$2,500,000',
-        beds: 4,
-        baths: 3,
-        area: '3500 sq ft'
+        image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Modern Villa in Beverly Hills',
+        location: 'Beverly Hills, CA',
+        price: '$12,500,000',
+        beds: 5,
+        baths: 7,
+        area: '8,000 sqft'
     },
     {
         id: 2,
-        image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800',
-        title: 'Modern Villa',
-        location: 'Riverside Estate',
-        price: '$3,200,000',
-        beds: 5,
+        image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Penthouse with Ocean View',
+        location: 'Malibu, CA',
+        price: '$9,800,000',
+        beds: 3,
         baths: 4,
-        area: '4500 sq ft'
+        area: '4,500 sqft'
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-        title: 'Contemporary Apartment',
-        location: 'City Center',
-        price: '$1,800,000',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Classic Estate in The Hamptons',
+        location: 'The Hamptons, NY',
+        price: '$15,000,000',
+        beds: 7,
+        baths: 9,
+        area: '12,000 sqft'
+    },
+    {
+        id: 4,
+        image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Luxury Waterfront Villa',
+        location: 'Miami Beach, FL',
+        price: '$8,200,000',
+        beds: 4,
+        baths: 5,
+        area: '6,200 sqft'
+    },
+    {
+        id: 5,
+        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Contemporary Downtown Penthouse',
+        location: 'Manhattan, NY',
+        price: '$11,800,000',
         beds: 3,
-        baths: 2,
-        area: '2500 sq ft'
+        baths: 4,
+        area: '3,800 sqft'
+    },
+    {
+        id: 6,
+        image: 'https://images.unsplash.com/photo-1566908829077-85d6b503b7e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Modern Architectural Masterpiece',
+        location: 'Hollywood Hills, CA',
+        price: '$18,500,000',
+        beds: 6,
+        baths: 8,
+        area: '9,500 sqft'
+    },
+    {
+        id: 7,
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80',
+        title: 'Luxury Urban Residence',
+        location: 'Downtown LA, CA',
+        price: '$7,300,000',
+        beds: 4,
+        baths: 5,
+        area: '5,200 sqft'
+    },
+    {
+        id: 8,
+        image: 'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'Exclusive Mountain Resort',
+        location: 'Aspen, CO',
+        price: '$22,000,000',
+        beds: 8,
+        baths: 10,
+        area: '15,000 sqft'
     }
 ];
 
@@ -100,7 +150,7 @@ class MultiSelectLocation {
         tag.dataset.value = value;
         tag.innerHTML = `
             <span>${text}</span>
-            <i class="lucide-x remove-tag"></i>
+            <i class="fas fa-times remove-tag"></i>
         `;
         
         // Make the entire tag clickable to unselect
@@ -155,6 +205,146 @@ class MultiSelectLocation {
             placeholder.style.color = '#6c757d';
         } else {
             placeholder.textContent = `${this.selectedValues.size} location(s) selected`;
+            placeholder.style.color = '#495057';
+        }
+    }
+    
+    getSelectedValues() {
+        return Array.from(this.selectedValues);
+    }
+    
+    clearAll() {
+        this.selectedValues.clear();
+        this.tagsContainer.innerHTML = '';
+        this.options.forEach(option => option.classList.remove('selected'));
+        this.updatePlaceholder();
+    }
+}
+
+// Multi-select property type functionality
+class MultiSelectPropertyType {
+    constructor(selector) {
+        this.container = document.querySelector(selector);
+        this.trigger = this.container.querySelector('.multi-select-trigger');
+        this.dropdown = this.container.querySelector('.multi-select-dropdown');
+        this.options = this.container.querySelectorAll('.multi-select-option');
+        this.tagsContainer = document.getElementById('selectedTypeTags');
+        this.selectedValues = new Set();
+        
+        this.init();
+    }
+    
+    init() {
+        this.trigger.addEventListener('click', () => this.toggleDropdown());
+        this.options.forEach(option => {
+            option.addEventListener('click', () => this.selectOption(option));
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.container.contains(e.target)) {
+                this.closeDropdown();
+            }
+        });
+    }
+    
+    toggleDropdown() {
+        const isOpen = this.dropdown.classList.contains('show');
+        if (isOpen) {
+            this.closeDropdown();
+        } else {
+            this.openDropdown();
+        }
+    }
+    
+    openDropdown() {
+        this.dropdown.classList.add('show');
+        this.trigger.classList.add('active');
+    }
+    
+    closeDropdown() {
+        this.dropdown.classList.remove('show');
+        this.trigger.classList.remove('active');
+    }
+    
+    selectOption(option) {
+        const value = option.dataset.value;
+        const text = option.textContent;
+        
+        if (this.selectedValues.has(value)) {
+            this.selectedValues.delete(value);
+            option.classList.remove('selected');
+            this.removeTag(value);
+        } else {
+            this.selectedValues.add(value);
+            option.classList.add('selected');
+            this.addTag(value, text);
+        }
+        
+        this.updatePlaceholder();
+    }
+    
+    addTag(value, text) {
+        const tag = document.createElement('div');
+        tag.className = 'selected-tag';
+        tag.dataset.value = value;
+        tag.innerHTML = `
+            <span>${text}</span>
+            <i class="fas fa-times remove-tag"></i>
+        `;
+        
+        // Make the entire tag clickable to unselect
+        tag.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.unselectTag(value);
+        });
+        
+        const removeBtn = tag.querySelector('.remove-tag');
+        removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.unselectTag(value);
+        });
+        
+        this.tagsContainer.appendChild(tag);
+    }
+    
+    unselectTag(value) {
+        // Remove from selected values
+        this.selectedValues.delete(value);
+        
+        // Update dropdown option
+        this.options.forEach(opt => {
+            if (opt.dataset.value === value) {
+                opt.classList.remove('selected');
+            }
+        });
+        
+        // Remove tag with animation
+        this.removeTag(value);
+        
+        // Update placeholder
+        this.updatePlaceholder();
+    }
+    
+    removeTag(value) {
+        const tag = this.tagsContainer.querySelector(`[data-value="${value}"]`);
+        if (tag) {
+            tag.style.animation = 'tagFadeOut 0.2s ease';
+            setTimeout(() => {
+                if (tag.parentNode) {
+                    tag.parentNode.removeChild(tag);
+                }
+            }, 200);
+        }
+    }
+    
+    updatePlaceholder() {
+        const placeholder = this.trigger.querySelector('.placeholder');
+        if (this.selectedValues.size === 0) {
+            placeholder.textContent = 'Select property types...';
+            placeholder.style.color = '#6c757d';
+        } else {
+            placeholder.textContent = `${this.selectedValues.size} type(s) selected`;
             placeholder.style.color = '#495057';
         }
     }
@@ -296,21 +486,42 @@ class AdvancedFilterModal {
 
 // Price range functionality
 function initPriceRange() {
-    const priceRange = document.getElementById('priceRange');
-    const priceValue = document.getElementById('priceValue');
+    const minPrice = document.getElementById('minPrice');
+    const maxPrice = document.getElementById('maxPrice');
     
-    if (priceRange && priceValue) {
-        priceRange.addEventListener('input', (e) => {
-            const value = parseInt(e.target.value);
-            priceValue.textContent = `$${value.toLocaleString()}`;
+    // Add number formatting on input
+    if (minPrice) {
+        minPrice.addEventListener('input', (e) => {
+            const value = e.target.value;
+            if (value) {
+                // Optional: Add validation to ensure min < max
+                const maxValue = maxPrice.value;
+                if (maxValue && parseInt(value) > parseInt(maxValue)) {
+                    showToastMessage('Minimum price cannot be greater than maximum price', 'warning');
+                }
+            }
+        });
+    }
+    
+    if (maxPrice) {
+        maxPrice.addEventListener('input', (e) => {
+            const value = e.target.value;
+            if (value) {
+                // Optional: Add validation to ensure max > min
+                const minValue = minPrice.value;
+                if (minValue && parseInt(value) < parseInt(minValue)) {
+                    showToastMessage('Maximum price cannot be less than minimum price', 'warning');
+                }
+            }
         });
     }
 }
 
 // Main filter application
 function applyFilters() {
-    const typeFilter = document.getElementById('typeFilter').value;
-    const priceRange = document.getElementById('priceRange').value;
+    const selectedPropertyTypes = multiSelectPropertyType.getSelectedValues();
+    const minPrice = document.getElementById('minPrice').value;
+    const maxPrice = document.getElementById('maxPrice').value;
     const selectedLocations = multiSelectLocation.getSelectedValues();
     const advancedFilters = advancedFilterModal.getFilters();
     
@@ -324,9 +535,10 @@ function applyFilters() {
         
         // Create filter summary
         let filterSummary = [];
-        if (typeFilter) filterSummary.push(`Type: ${typeFilter}`);
+        if (selectedPropertyTypes.length > 0) filterSummary.push(`Types: ${selectedPropertyTypes.length} selected`);
         if (selectedLocations.length > 0) filterSummary.push(`Locations: ${selectedLocations.length} selected`);
-        if (priceRange && priceRange !== '5000000') filterSummary.push(`Max Price: $${parseInt(priceRange).toLocaleString()}`);
+        if (minPrice) filterSummary.push(`Min Price: $${parseInt(minPrice).toLocaleString()}`);
+        if (maxPrice) filterSummary.push(`Max Price: $${parseInt(maxPrice).toLocaleString()}`);
         
         const message = filterSummary.length > 0 
             ? `Filters applied: ${filterSummary.join(', ')}`
@@ -362,8 +574,9 @@ class MobileFilterModal {
     constructor() {
         this.modal = new bootstrap.Modal(document.getElementById('mobileFilterModal'));
         this.mobileLocationSelect = null;
+        this.mobileTypeSelect = null;
         this.filters = {
-            type: '',
+            propertyTypes: [],
             priceRange: '5000000',
             locations: [],
             bedrooms: '',
@@ -381,6 +594,9 @@ class MobileFilterModal {
     init() {
         // Initialize mobile location multi-select
         this.initMobileLocationSelect();
+        
+        // Initialize mobile property type multi-select
+        this.initMobileTypeSelect();
         
         // Initialize mobile price range
         this.initMobilePriceRange();
@@ -418,6 +634,16 @@ class MobileFilterModal {
         this.mobileLocationSelect.tagsContainer = document.getElementById('mobileSelectedLocationTags');
     }
     
+    initMobileTypeSelect() {
+        const container = document.getElementById('mobileTypeSelect');
+        if (!container) return;
+        
+        this.mobileTypeSelect = new MultiSelectPropertyType('#mobileTypeSelect');
+        
+        // Update the container reference for mobile
+        this.mobileTypeSelect.tagsContainer = document.getElementById('mobileSelectedTypeTags');
+    }
+    
     initMobilePriceRange() {
         const priceRange = document.getElementById('mobilePriceRange');
         const priceValue = document.getElementById('mobilePriceValue');
@@ -432,14 +658,30 @@ class MobileFilterModal {
     }
     
     syncFiltersFromDesktop() {
-        // Sync property type
-        const desktopType = document.getElementById('typeFilter').value;
-        document.getElementById('mobileTypeFilter').value = desktopType;
+        // Sync property types
+        if (multiSelectPropertyType && this.mobileTypeSelect) {
+            const selectedTypes = multiSelectPropertyType.getSelectedValues();
+            // Clear mobile selections first
+            this.mobileTypeSelect.clearAll();
+            // Apply desktop selections to mobile
+            selectedTypes.forEach(value => {
+                const option = this.mobileTypeSelect.container.querySelector(`[data-value="${value}"]`);
+                if (option) {
+                    this.mobileTypeSelect.selectOption(option);
+                }
+            });
+        }
         
-        // Sync price range
-        const desktopPrice = document.getElementById('priceRange').value;
-        document.getElementById('mobilePriceRange').value = desktopPrice;
-        document.getElementById('mobilePriceValue').textContent = `$${parseInt(desktopPrice).toLocaleString()}`;
+        // Sync price range - now using min/max inputs
+        const desktopMinPrice = document.getElementById('minPrice').value;
+        const desktopMaxPrice = document.getElementById('maxPrice').value;
+        
+        // For now, keep mobile as range slider but sync with desktop values
+        // You can update mobile to min/max inputs later if needed
+        if (desktopMaxPrice) {
+            document.getElementById('mobilePriceRange').value = desktopMaxPrice;
+            document.getElementById('mobilePriceValue').textContent = `$${parseInt(desktopMaxPrice).toLocaleString()}`;
+        }
         
         // Sync locations
         if (multiSelectLocation && this.mobileLocationSelect) {
@@ -458,7 +700,7 @@ class MobileFilterModal {
     
     applyFilters() {
         // Get all filter values
-        this.filters.type = document.getElementById('mobileTypeFilter').value;
+        this.filters.propertyTypes = this.mobileTypeSelect ? this.mobileTypeSelect.getSelectedValues() : [];
         this.filters.priceRange = document.getElementById('mobilePriceRange').value;
         this.filters.bedrooms = document.getElementById('mobileBedrooms').value;
         this.filters.bathrooms = document.getElementById('mobileBathrooms').value;
@@ -514,8 +756,7 @@ class MobileFilterModal {
     }
     
     clearFilters() {
-        // Reset all form elements
-        document.getElementById('mobileTypeFilter').value = '';
+        // Reset price range
         document.getElementById('mobilePriceRange').value = '5000000';
         document.getElementById('mobilePriceValue').textContent = '$5,000,000';
         document.getElementById('mobileBedrooms').value = '';
@@ -530,6 +771,11 @@ class MobileFilterModal {
             this.mobileLocationSelect.clearAll();
         }
         
+        // Clear mobile property type selection
+        if (this.mobileTypeSelect) {
+            this.mobileTypeSelect.clearAll();
+        }
+        
         // Uncheck all amenities
         const amenityCheckboxes = document.querySelectorAll('#mobileFilterModal .form-check-input');
         amenityCheckboxes.forEach(checkbox => {
@@ -538,7 +784,7 @@ class MobileFilterModal {
         
         // Reset filters object
         this.filters = {
-            type: '',
+            propertyTypes: [],
             priceRange: '5000000',
             locations: [],
             bedrooms: '',
@@ -562,55 +808,192 @@ class MobileFilterModal {
     }
 }
 
-// Initialize everything when DOM is loaded
+// Load and display featured properties
+function loadFeaturedProperties() {
+    const propertiesGrid = document.getElementById('propertiesGrid');
+    if (!propertiesGrid) return;
+    
+    propertiesGrid.innerHTML = '';
+    
+    featuredProperties.forEach(property => {
+        const propertyCard = createPropertyCard(property);
+        propertiesGrid.appendChild(propertyCard);
+    });
+}
+
+// Create property card element
+function createPropertyCard(property) {
+    const colDiv = document.createElement('div');
+    colDiv.className = 'col-lg-4 col-md-6';
+    
+    colDiv.innerHTML = `
+        <div class="property-card h-100">
+            <div class="property-image-container">
+                <div class="image-placeholder loading" id="property-placeholder-${property.id}">
+                    <i class="fas fa-home image-placeholder-icon"></i>
+                    <div class="image-placeholder-text">Loading image...</div>
+                </div>
+                <img src="${property.image}" 
+                     alt="${property.title}" 
+                     class="property-image loading"
+                     data-property-id="${property.id}"
+                     onload="handlePropertyImageLoad(this)"
+                     onerror="handlePropertyImageError(this)">
+                <div class="property-badge">For Sale</div>
+                <button class="favorite-btn" onclick="toggleFavorite(${property.id})">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            <div class="property-details">
+                <h5 class="property-title">${property.title}</h5>
+                <p class="property-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    ${property.location}
+                </p>
+                <div class="property-price">${property.price}</div>
+                <div class="property-specs">
+                    <span><i class="fas fa-bed"></i> ${property.beds}</span>
+                    <span><i class="fas fa-bath"></i> ${property.baths}</span>
+                    <span><i class="fas fa-ruler-combined"></i> ${property.area}</span>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    return colDiv;
+}
+
+// Property image loading handlers
+window.handlePropertyImageLoad = function(img) {
+    const propertyId = img.getAttribute('data-property-id');
+    const placeholder = document.getElementById(`property-placeholder-${propertyId}`);
+    
+    // Remove loading classes and show image
+    img.classList.remove('loading');
+    img.classList.add('loaded');
+    
+    // Hide placeholder
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
+};
+
+window.handlePropertyImageError = function(img) {
+    const propertyId = img.getAttribute('data-property-id');
+    const placeholder = document.getElementById(`property-placeholder-${propertyId}`);
+    const originalSrc = img.src;
+    
+    // Try a fallback image first
+    if (!img.hasAttribute('data-fallback-tried')) {
+        img.setAttribute('data-fallback-tried', 'true');
+        // Use a more reliable fallback image
+        img.src = 'https://via.placeholder.com/800x600/0EA5E9/FFFFFF?text=Luxury+Property';
+        return;
+    }
+    
+    // Hide failed image
+    img.classList.add('error');
+    
+    // Show error placeholder with retry option
+    if (placeholder) {
+        placeholder.classList.remove('loading');
+        placeholder.classList.add('clickable');
+        placeholder.innerHTML = `
+            <i class="fas fa-image image-placeholder-icon"></i>
+            <div class="image-placeholder-text">Image not available</div>
+            <button class="image-placeholder-retry" onclick="retryPropertyImageLoad('${propertyId}', '${originalSrc}')">
+                Try Again
+            </button>
+        `;
+    }
+};
+
+// Retry property image loading
+window.retryPropertyImageLoad = function(propertyId, imageSrc) {
+    const img = document.querySelector(`[data-property-id="${propertyId}"]`);
+    const placeholder = document.getElementById(`property-placeholder-${propertyId}`);
+    
+    if (img && placeholder) {
+        // Reset placeholder to loading state
+        placeholder.classList.remove('clickable');
+        placeholder.classList.add('loading');
+        placeholder.innerHTML = `
+            <i class="fas fa-home image-placeholder-icon"></i>
+            <div class="image-placeholder-text">Loading image...</div>
+        `;
+        
+        // Reset image and fallback flag
+        img.classList.remove('error', 'loaded');
+        img.classList.add('loading');
+        img.removeAttribute('data-fallback-tried');
+        
+        // Reload image with cache busting
+        img.src = imageSrc + (imageSrc.includes('?') ? '&' : '?') + 't=' + Date.now();
+    }
+};
+
+// Toggle favorite status
+window.toggleFavorite = function(propertyId) {
+    const btn = document.querySelector(`button[onclick="toggleFavorite(${propertyId})"] i`);
+    if (btn.classList.contains('far')) {
+        btn.classList.remove('far');
+        btn.classList.add('fas');
+        showToastMessage('Property added to favorites!', 'success');
+    } else {
+        btn.classList.remove('fas');
+        btn.classList.add('far');
+        showToastMessage('Property removed from favorites!', 'info');
+    }
+};
+
+// Show toast message
+function showToastMessage(message, type = 'info') {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast-message toast-${type}`;
+    toast.textContent = message;
+    
+    // Add to body
+    document.body.appendChild(toast);
+    
+    // Show with animation
+    setTimeout(() => toast.classList.add('show'), 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Global variables for multi-select components
 let multiSelectLocation;
+let multiSelectPropertyType;
 let advancedFilterModal;
 let mobileFilterModal;
 
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize multi-select location
+    // Initialize multi-select components
     multiSelectLocation = new MultiSelectLocation('#customLocationSelect');
+    multiSelectPropertyType = new MultiSelectPropertyType('#customTypeSelect');
     
-    // Initialize advanced filter modal
+    // Initialize modals
     advancedFilterModal = new AdvancedFilterModal();
-    
-    // Initialize mobile filter modal
     mobileFilterModal = new MobileFilterModal();
     
-    // Initialize price range
+    // Initialize price range inputs
     initPriceRange();
     
-    // Apply filters button
+    // Initialize apply filters button
     document.getElementById('applyFiltersBtn').addEventListener('click', applyFilters);
     
-    // Render featured properties if container exists
-    if (document.getElementById('featuredProperties')) {
-        renderFeaturedProperties();
-    }
-});
-
-function renderFeaturedProperties() {
-    const container = document.getElementById('featuredProperties');
-    if (!container) return;
+    // Load featured properties
+    loadFeaturedProperties();
     
-    featuredProperties.forEach(property => {
-        const card = `
-            <div class="col-md-4">
-                <div class="property-card">
-                    <img src="${property.image}" alt="${property.title}" class="property-image" loading="lazy">
-                    <div class="property-body">
-                        <h5 class="mb-2">${property.title}</h5>
-                        <p class="text-muted mb-3"><i class="icon-map-pin"></i> ${property.location}</p>
-                        <div class="property-price mb-3">${property.price}</div>
-                        <div class="d-flex justify-content-between text-muted">
-                            <span><i class="icon-bed"></i> ${property.beds} Beds</span>
-                            <span><i class="icon-bath"></i> ${property.baths} Baths</span>
-                            <span><i class="icon-maximize"></i> ${property.area}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        container.innerHTML += card;
-    });
-}
+    console.log('Multi-select filters initialized successfully');
+});
