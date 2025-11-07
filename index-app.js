@@ -998,6 +998,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Google Reviews Section
     initGoogleReviews();
     
+    // Initialize audio showcase buttons
+    initAudioShowcase();
+
     console.log('Multi-select filters initialized successfully');
 });
 
@@ -1055,7 +1058,7 @@ class ReviewsSlider {
     
     updateSlider() {
         // Update track position
-        const translateX = -this.currentSlide * (100 / this.totalSlides);
+        const translateX = -this.currentSlide * 100;
         this.track.style.transform = `translateX(${translateX}%)`;
         
         // Update indicators
@@ -1150,20 +1153,37 @@ function initAnimatedCounters() {
 
 function animateCounter(element) {
     const target = parseFloat(element.getAttribute('data-count'));
-    const isDecimal = target % 1 !== 0;
-    const duration = 2000;
-    const increment = target / (duration / 16);
+    if (Number.isNaN(target)) return;
+
+    const decimalsAttr = element.getAttribute('data-decimals');
+    const decimals = decimalsAttr !== null ? Math.max(0, parseInt(decimalsAttr, 10)) : (target % 1 !== 0 ? 1 : 0);
+    const prefix = element.getAttribute('data-prefix') || '';
+    const suffix = element.getAttribute('data-suffix') || '';
+    const duration = parseInt(element.getAttribute('data-duration'), 10) || 2000;
+    const frameTime = 16;
+    const steps = Math.max(1, Math.round(duration / frameTime));
+    const increment = target / steps;
     let current = 0;
-    
+
+    const formatValue = (value, forceFinal = false) => {
+        let formatted;
+        if (decimals > 0) {
+            formatted = (forceFinal ? target : value).toFixed(decimals);
+        } else {
+            formatted = forceFinal ? Math.round(target).toString() : Math.floor(value).toString();
+        }
+        return `${prefix}${formatted}${suffix}`;
+    };
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = isDecimal ? target.toFixed(1) : target;
+            element.textContent = formatValue(target, true);
             clearInterval(timer);
         } else {
-            element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+            element.textContent = formatValue(current);
         }
-    }, 16);
+    }, frameTime);
 }
 
 // Google Review Button
@@ -1269,3 +1289,23 @@ notificationStyles.textContent = `
     }
 `;
 document.head.appendChild(notificationStyles);
+
+// ================================
+// AUDIO SHOWCASE
+// ================================
+
+function initAudioShowcase() {
+    const buttons = document.querySelectorAll('.audio-play-btn');
+    if (!buttons.length) {
+        return;
+    }
+
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const targetUrl = btn.getAttribute('data-yt');
+            if (targetUrl) {
+                window.open(targetUrl, '_blank', 'noopener');
+            }
+        });
+    });
+}
