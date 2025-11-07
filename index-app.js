@@ -995,5 +995,277 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load featured properties
     loadFeaturedProperties();
     
+    // Initialize Google Reviews Section
+    initGoogleReviews();
+    
     console.log('Multi-select filters initialized successfully');
 });
+
+// ================================
+// GOOGLE REVIEWS SECTION FUNCTIONALITY
+// ================================
+
+function initGoogleReviews() {
+    initReviewsSlider();
+    initAnimatedCounters();
+    initGoogleReviewButton();
+    
+    console.log('Google Reviews section initialized');
+}
+
+// Reviews Slider Class
+class ReviewsSlider {
+    constructor() {
+        this.track = document.getElementById('reviewsTrack');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.reviews = document.querySelectorAll('.review-card');
+        
+        this.currentSlide = 0;
+        this.totalSlides = this.reviews.length;
+        this.isAutoPlaying = true;
+        this.autoPlayInterval = null;
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.track) return;
+        
+        // Event listeners
+        this.prevBtn?.addEventListener('click', () => this.prevSlide());
+        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        
+        // Indicator clicks
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Auto-play
+        this.startAutoPlay();
+        
+        // Pause auto-play on hover
+        this.track.addEventListener('mouseenter', () => this.pauseAutoPlay());
+        this.track.addEventListener('mouseleave', () => this.resumeAutoPlay());
+        
+        // Touch/swipe support
+        this.initTouchSupport();
+    }
+    
+    updateSlider() {
+        // Update track position
+        const translateX = -this.currentSlide * (100 / this.totalSlides);
+        this.track.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        this.indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentSlide);
+        });
+        
+        // Update review card states
+        this.reviews.forEach((review, index) => {
+            review.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+    
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+        this.updateSlider();
+    }
+    
+    prevSlide() {
+        this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+        this.updateSlider();
+    }
+    
+    goToSlide(index) {
+        this.currentSlide = index;
+        this.updateSlider();
+    }
+    
+    startAutoPlay() {
+        this.autoPlayInterval = setInterval(() => {
+            if (this.isAutoPlaying) {
+                this.nextSlide();
+            }
+        }, 6000); // Change slide every 6 seconds
+    }
+    
+    pauseAutoPlay() {
+        this.isAutoPlaying = false;
+    }
+    
+    resumeAutoPlay() {
+        this.isAutoPlaying = true;
+    }
+    
+    initTouchSupport() {
+        let startX = 0;
+        let endX = 0;
+        
+        this.track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        this.track.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) { // Minimum swipe distance
+                if (diff > 0) {
+                    this.nextSlide();
+                } else {
+                    this.prevSlide();
+                }
+            }
+        });
+    }
+}
+
+function initReviewsSlider() {
+    new ReviewsSlider();
+}
+
+// Animated Counters for Stats
+function initAnimatedCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(element) {
+    const target = parseFloat(element.getAttribute('data-count'));
+    const isDecimal = target % 1 !== 0;
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = isDecimal ? target.toFixed(1) : target;
+            clearInterval(timer);
+        } else {
+            element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+        }
+    }, 16);
+}
+
+// Google Review Button
+function initGoogleReviewButton() {
+    const googleBtn = document.getElementById('googleReviewBtn');
+    
+    if (googleBtn) {
+        googleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // Simulate opening Google Reviews (replace with actual Google Reviews URL)
+            console.log('Opening Google Reviews...');
+            // window.open('https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review', '_blank');
+            
+            // Show feedback message
+            showNotification('Thank you for your interest! Google Reviews will open shortly.', 'success');
+        });
+    }
+}
+
+// Utility function for notifications
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="material-symbols-outlined">
+                ${type === 'success' ? 'check_circle' : 'info'}
+            </span>
+            <span class="notification-text">${message}</span>
+        </div>
+    `;
+    
+    // Add notification styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+        color: white;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        animation: slideInRight 0.3s ease-out;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        max-width: 350px;
+    `;
+    
+    // Add to DOM
+    document.body.appendChild(notification);
+    
+    // Remove after 4 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 4000);
+}
+
+// Add notification animations to CSS
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .notification-content .material-symbols-outlined {
+        font-size: 20px;
+    }
+`;
+document.head.appendChild(notificationStyles);

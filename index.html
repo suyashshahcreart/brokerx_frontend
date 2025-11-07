@@ -16,6 +16,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -98,7 +99,7 @@
         <div class="header-mesh-overlay"></div>
     </nav>
 
-    <section class="container py-5 my-5">
+    <section class="broker-profile-hero-section container py-5 my-5">
         <div class="row align-items-center">
                 
                 <!-- Column 1: Profile Image and Primary Action (lg:col-span-1) -->
@@ -188,7 +189,7 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light my-5">
+    <section class="properties-for-sale-section py-5 bg-light my-5">
         <div class="container">                                         
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="mb-0">Properties For Sale</h1>
@@ -338,7 +339,7 @@
         </div>
     </section>
 
-    <!-- <section class="py-5 bg-light">
+    <!-- <section class="property-search-box-section py-5 bg-light">
         <div class="container">
             <div class="search-box">
                 <div class="row g-3">
@@ -367,7 +368,7 @@
         </div>
     </section> -->
 
-    <!-- <section class="py-5">
+    <!-- <section class="featured-properties-section py-5">
         <div class="container">
             <h2 class="text-center mb-5">Featured Properties</h2>
             <div class="row g-4" id="featuredProperties"></div>
@@ -377,7 +378,7 @@
         </div>
     </section> -->
 
-    <!-- <section class="py-5 bg-light">
+    <!-- <section class="key-facilities-section py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Key Facilities</h2>
             <div class="row g-4">
@@ -413,7 +414,266 @@
         </div>
     </section> -->
 
-    <section class="py-5">
+    <!-- Google Reviews Inspired Section - 2025 Design -->
+    <section class="google-reviews-section">
+        <!-- Modern Background with Glassmorphism -->
+        <div class="reviews-modern-bg">
+            <div class="gradient-mesh"></div>
+            <div class="floating-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        
+        <div class="container position-relative">
+            <!-- Section Header -->
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="google-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="google-icon">
+                    <span class="reviews-text">Reviews</span>
+                </div>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row align-items-center">
+                <!-- Left Side: Rating Display (Google Style) -->
+                <div class="col-lg-5 col-md-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="rating-display-modern">
+                        <!-- Main Rating Circle -->
+                        <div class="rating-circle-container">
+                            <div class="rating-circle">
+                                <div class="rating-inner">
+                                    <div class="rating-value" data-count="5.0">0.0</div>
+                                    <div class="rating-stars-circle">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                    </div>
+                                </div>
+                                <div class="circle-glow"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats Cards -->
+                        <div class="stats-cards-modern">
+                            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="stat-icon">
+                                    <span class="material-symbols-outlined">groups</span>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="127">0</div>
+                                    <div class="stat-label">Total Reviews</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="stat-icon">
+                                    <span class="material-symbols-outlined">trending_up</span>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="98">0</div>
+                                    <div class="stat-label">% Satisfaction</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Google CTA -->
+                        <div class="google-cta" data-aos="fade-up" data-aos-delay="300">
+                            <button class="google-review-btn" id="googleReviewBtn">
+                                <div class="btn-content">
+                                    <span class="material-symbols-outlined">rate_review</span>
+                                    <span class="btn-text">Write a Google Review</span>
+                                </div>
+                                <div class="btn-shine"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Reviews Slider -->
+                <div class="col-lg-7 col-md-6" data-aos="fade-left">
+                    <div class="reviews-slider-container">
+                        <div class="slider-header">
+                            <h3 class="slider-title">Recent Client Reviews</h3>
+                            <div class="slider-controls">
+                                <button class="slider-btn prev-btn" id="prevBtn">
+                                    <span class="material-symbols-outlined">chevron_left</span>
+                                </button>
+                                <button class="slider-btn next-btn" id="nextBtn">
+                                    <span class="material-symbols-outlined">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-slider">
+                            <div class="reviews-track" id="reviewsTrack">
+                                <!-- Review Card 1 -->
+                                <div class="review-card google-style active">
+                                    <div class="card-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Diana Svenda">
+                                                <div class="avatar-badge">D</div>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <h6 class="reviewer-name">Diana Svenda</h6>
+                                                <div class="review-meta">
+                                                    <div class="review-stars">
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                    </div>
+                                                    <span class="review-time">2 weeks ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="google-verified">
+                                            <span class="material-symbols-outlined">verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p class="review-text">Steve is an incredibly knowledgeable and experienced real estate agent. He helped me find my dream home and was very patient throughout the entire process. I highly recommend him!</p>
+                                        <div class="review-footer">
+                                            <span class="platform-badge">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                                                View on Google
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Review Card 2 -->
+                                <div class="review-card google-style">
+                                    <div class="card-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Kaushal A">
+                                                <div class="avatar-badge">K</div>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <h6 class="reviewer-name">Kaushal A</h6>
+                                                <div class="review-meta">
+                                                    <div class="review-stars">
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                    </div>
+                                                    <span class="review-time">1 month ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="google-verified">
+                                            <span class="material-symbols-outlined">verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p class="review-text">After a couple dreadful months of searching via lower ranked real estate agents, Michael exceeded all expectations. Professional, responsive, and delivered results.</p>
+                                        <div class="review-footer">
+                                            <span class="platform-badge">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                                                View on Google
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Review Card 3 -->
+                                <div class="review-card google-style">
+                                    <div class="card-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jake">
+                                                <div class="avatar-badge">J</div>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <h6 class="reviewer-name">Jake</h6>
+                                                <div class="review-meta">
+                                                    <div class="review-stars">
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                    </div>
+                                                    <span class="review-time">3 weeks ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="google-verified">
+                                            <span class="material-symbols-outlined">verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p class="review-text">I have known Steven for a very long time. He is always friendly and professional. I would definitely recommend him to anyone looking for real estate services.</p>
+                                        <div class="review-footer">
+                                            <span class="platform-badge">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                                                View on Google
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Review Card 4 -->
+                                <div class="review-card google-style">
+                                    <div class="card-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Rantgarman">
+                                                <div class="avatar-badge">R</div>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <h6 class="reviewer-name">Rantgarman</h6>
+                                                <div class="review-meta">
+                                                    <div class="review-stars">
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                    </div>
+                                                    <span class="review-time">1 week ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="google-verified">
+                                            <span class="material-symbols-outlined">verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p class="review-text">I've been lucky to know Steven my entire life and watching him excel in real estate has been amazing. He truly cares about his clients and goes above and beyond.</p>
+                                        <div class="review-footer">
+                                            <span class="platform-badge">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                                                View on Google
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slider Indicators -->
+                        <div class="slider-indicators">
+                            <div class="indicator active" data-slide="0"></div>
+                            <div class="indicator" data-slide="1"></div>
+                            <div class="indicator" data-slide="2"></div>
+                            <div class="indicator" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section py-5">
         <div class="container">
             <h1 class="mb-4">Get In Touch</h1>
             <div class="row g-5">
@@ -986,7 +1246,17 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="index-app.js"></script>
     <script src="properties-app.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
